@@ -6,10 +6,10 @@ var express = require('express'); // calls express
 var app = express();              // define the app using express
 var bodyParser = require('body-parser');
 
-var mongoose = require('moongoose');
-mongoose.connect('mongodb://taurch:daydream@ds053300.mongolab.com:53300/nodey-blog')
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://taurch:daydream@ds053300.mongolab.com:53300/nodey-blog');
 
-var Dream = require('.app/models/dream');
+var Dream = require('./app/models/dream.js');
 
 // configure app to use bodyParser() => this lets us get data from POST
 

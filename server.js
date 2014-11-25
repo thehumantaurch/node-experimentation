@@ -9,6 +9,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('moongoose');
 mongoose.connect('mongodb://taurch:daydream@ds053300.mongolab.com:53300/nodey-blog')
 
+var Dream = require('.app/models/dream');
+
 // configure app to use bodyParser() => this lets us get data from POST
 
 app.use(bodyParser.urlencoded({extended: true}));

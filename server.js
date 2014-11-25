@@ -20,7 +20,12 @@ var port = process.env.PORT || 8080; // sets port
 
 // ROUTES FOR THE API
 // =================================================
-var router = express.Router();
+var router = express.Router(); // gets instance of Express router
+
+router.use(function(req, res, next) {
+  console.log('Something is happening.');
+  next(); // make sure we go to the next route and don't stop the processing here
+});
 
 router.get('/', function(req, res) {
   res.json({message: 'hooray! you got at least one thing working!'});

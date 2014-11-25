@@ -33,16 +33,17 @@ router.get('/', function(req, res) {
 
 router.route('/dreams')
   // create a new dream (accessed at POST http://localhost:8080/api/dreams)
-  .post(function(req, res){
-  var dream = new Dream(); // create a new instance of Dream model
-  dream.name = req.body.name; // sets Dream's name (comes from request)
+  .post(function(req, res) {
 
-  dream.save(function(err){
-    if (err)
-      res.send(err);
+    var dream = new Dream(); // create a new instance of Dream model
+    dream.name = req.body.name; // sets Dream's name (comes from request)
 
-    res.json({ message: 'Dream created!'});
-  });
+      dream.save(function(err){
+        if (err)
+          res.send(err);
+
+        res.json({ message: 'Dream created!'});
+      });
 });
 
 // REGISTER THE ROUTES -----------------------------

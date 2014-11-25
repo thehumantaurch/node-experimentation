@@ -31,6 +31,20 @@ router.get('/', function(req, res) {
   res.json({message: 'hooray! you got at least one thing working!'});
 });
 
+router.route('/dreams')
+  // create a new dream (accessed at POST http://localhost:8080/api/dreams)
+  .post(function(req, res){
+  var dream = new Dream(); // create a new instance of Dream model
+  dream.name = req.body.name; // sets Dream's name (comes from request)
+
+  dream.save(function(err){
+    if (err)
+      res.send(err);
+
+    res.json({ message: 'Dream created!'});
+  });
+});
+
 // REGISTER THE ROUTES -----------------------------
 // all routes will be prefixed with '/api'
 app.use('/api', router);

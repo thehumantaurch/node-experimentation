@@ -44,7 +44,26 @@ router.route('/dreams')
 
         res.json({ message: 'Dream created!'});
       });
-});
+    })
+
+  .get(function(req, res) {
+    Dream.find(function(err, dreams){
+      if (err)
+        res.send(err);
+
+      res.json(dreams);
+    });
+  });
+
+router.route('/dreams/:dream_id')
+
+  .get(function(req, res) {
+    Dream.findById(req.params.dream_id, function(err, dream) {
+      if (err)
+        res.send(err);
+      res.json(dream);
+    });
+  });
 
 // REGISTER THE ROUTES -----------------------------
 // all routes will be prefixed with '/api'

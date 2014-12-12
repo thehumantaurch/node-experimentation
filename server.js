@@ -63,6 +63,24 @@ router.route('/dreams/:dream_id')
         res.send(err);
       res.json(dream);
     });
+  })
+
+  .put(function(req, res) {
+
+    Dream.findById(req.params.dream_id, function(err, dream) {
+      if (err)
+        res.send(err);
+
+      dream.name = req.body.name; // the editing
+
+      dream.save(function(err) {
+        if (err)
+          res.send(err);
+
+        res.json({ message: "Dream updated! "});
+      });
+
+    });
   });
 
 // REGISTER THE ROUTES -----------------------------

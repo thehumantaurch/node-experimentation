@@ -81,6 +81,17 @@ router.route('/dreams/:dream_id')
       });
 
     });
+  })
+
+  .delete(function(req, res) {
+    Dream.remove({
+      _id: req.params.dream_id
+    }, function(err, dream) {
+      if (err)
+        res.send(err);
+
+      res.json({ message: "Successfully deleted" });
+    });
   });
 
 // REGISTER THE ROUTES -----------------------------

@@ -13,8 +13,8 @@ var db = require('./config/db');
 var port = process.env.PORT || 8080;
 
 // connect to our mongoDB database
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://taurch:daydream@ds053300.mongolab.com:53300/nodey-blog');
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://taurch:daydream@ds053300.mongolab.com:53300/nodey-blog');
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json

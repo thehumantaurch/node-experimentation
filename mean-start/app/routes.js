@@ -8,7 +8,7 @@ var Nerd = require('./models/nerd');
     // authentication routes
 
     // sample api route
-    app.get('/api/nerds', function(req, res), {
+    app.get('/api/nerds', function(req, res) {
       // use mongoose to get all the nerds in the database
       Nerd.find(function(err, nerds) {
         // if there is an error retrieving, send error & nothing after res.send(err) will execute

@@ -23,6 +23,19 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'})); // parse applicat
 
 app.use(methodOverride());
 
+// define model ================================
+var Todo = mongoose.model('Todo', {
+  text : String
+});
+
+// api -----------------------------------------
+// get all todos
+app.get('/api/todos', function(req, res) {
+
+  // PAUSED HERE http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular#creating-our-node-api
+})
+
 // listen => start app with node server.js
 app.listen(8080);
 console.log("Magic happens on 8080");
+
